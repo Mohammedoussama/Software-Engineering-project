@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HIREVO — Landing</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main_page.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar (top-left) -->
+    <aside class="sidebar">
+      <div class="small-logo">
+        <img src="pictures/transparent-Photoroom (1).png" alt="small logo">
+      </div>
+
+      <nav class="nav">
+        <ul>
+          <li class="nav-item active"><a href="#">Home Page</a></li>
+          <li class="nav-item"><a href="#">About us</a></li>
+          <li class="nav-item"><a href="#">Contact us</a></li>
+          <li class="nav-item"><a href="#">Offers</a></li>
+        </ul>
+      </nav>
+
+      <button class="settings-btn" aria-label="Settings">
+        <!-- you can swap this <img> for an icon font or inline svg -->
+        <img src="pictures/Setting_fill.png" alt="settings">
+      </button>
+    </aside>
+
+    <!-- Main area -->
+    <main class="main">
+      <div class="search-row">
+        <div class="search-input">
+          <input type="search" placeholder="Search..." />
+        </div>
+        <button class="profile-btn">
+        <img src="pictures/Group 9.png" alt="Profile">
+</button>
+
+      </div>
+
+      <section class="hero center" id="hero">
+        <h1 class="hirevo">HIREVO</h1>
+
+        <!-- big logo that will drop -->
+        <img src="pictures/Group 14.png" alt="Main logo" class="main-logo" id="mainLogo">
+
+        <p class="tag">“Your Future, Upgraded by AI.”</p>
+        <div class="down-arrow">⌄</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="main_page.js"></script>
+</body>
+</html>

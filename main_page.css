@@ -1,0 +1,403 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #0f0f0f;
+  color: #fff;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  overflow: hidden;
+}
+
+/* App layout */
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar positioned top-left and fixed width */
+.sidebar {
+  width: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 5;
+}
+
+/* small logo in top-left */
+.small-logo img {
+  width: 36px;
+  height: auto;
+  display: block;
+  margin-bottom: 18px;
+}
+
+/* nav list */
+.nav ul {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.nav .nav-item {
+  margin: 14px 0;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #bdbdbd;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 210ms ease, color 210ms ease, text-shadow 210ms;
+  display: inline-block;
+}
+
+.nav a:hover {
+  color: #a259ff;
+  transform: scale(1.06);
+  text-shadow: 0 0 12px rgba(162, 89, 255, 0.55);
+}
+
+.nav .active a {
+  color: #a259ff;
+  transform: scale(1.06);
+  text-shadow: 0 0 14px rgba(162, 89, 255, 0.7);
+  font-size: 15px;
+}
+
+/* settings button pinned bottom-left inside sidebar area */
+.settings-btn {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.settings-btn img {
+  width: 22px;
+  filter: invert(1) brightness(1.2);
+  opacity: 0.9;
+  transition: transform 0.25s ease;
+}
+
+.settings-btn:hover img {
+  transform: rotate(20deg);
+  opacity: 1;
+}
+
+/* Main area occupies remaining width */
+.main {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Search row near the top center */
+.search-row {
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.search-input input {
+  width: 100%;
+  max-width: 900px;
+  background: #191919;
+  border-radius: 999px;
+  padding: 12px 46px 12px 300px;
+  border: none;
+  color: #dcdcdc;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Remove the profile icon from search-row layout and position it absolutely */
+.profile {
+  position: absolute;
+  top: 28px;
+  right: 40px;
+  margin: 0;
+  z-index: 10;
+}
+
+.profile img,
+.profile i {
+  width: 28px;
+  height: 28px;
+  filter: invert(1) brightness(1.1);
+  opacity: 0.9;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.profile:hover img,
+.profile:hover i {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* Adjust search bar width since profile is now separate */
+.search-row {
+  width: 60%;
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Hero / center area */
+.center {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 160px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* HIREVO background text */
+.hirevo {
+  font-size: 12.5vw;
+  font-weight: 800;
+  color: #dcdcdc;
+  line-height: 0.95;
+  z-index: 1;
+  transition: filter 700ms ease, opacity 700ms ease;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  margin: 0;
+}
+
+/* Big logo that drops down */
+.main-logo {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -30%);
+  width: min(28vw, 360px);
+  z-index: 3;
+  opacity: 0;
+  animation: logoDrop 1.0s cubic-bezier(.22, .98, .36, 1) 0.35s forwards;
+}
+
+@keyframes logoDrop {
+  0% {
+    top: 8%;
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
+  60% {
+    top: 48%;
+    transform: translate(-50%, -60%);
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+/* When hero has class .logo-landed, blur/fade behind text */
+.center.logo-landed .hirevo {
+  opacity: 0.68;
+  filter: blur(2px);
+}
+
+/* tagline & arrow below */
+.tag {
+  position: absolute;
+  bottom: 90px;
+  color: #cfcfcf;
+  font-size: 14px;
+  z-index: 1;
+}
+
+.down-arrow {
+  position: absolute;
+  bottom: 58px;
+  color: #a259ff;
+  z-index: 1;
+  animation: bounce 1.6s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* Responsive tweak */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 120px;
+    padding: 12px;
+  }
+
+  .nav a {
+    font-size: 13px;
+  }
+
+  .main-logo {
+    width: 46vw;
+  }
+
+  .hirevo {
+    font-size: 20vw;
+  }
+
+  .search-row {
+    width: 90%;
+  }
+}
+
+/* --- MAKE EVERYTHING BIGGER & STRONGER --- */
+.main-logo {
+  width: min(55vw, 600px);
+  filter: drop-shadow(0 0 45px rgba(0, 0, 0, 0.85));
+  animation: logoDrop 1.4s cubic-bezier(.22, .98, .36, 1) 0.3s forwards;
+}
+
+.center.logo-landed .hirevo {
+  opacity: 0.6;
+  filter: blur(3px);
+}
+
+.hirevo {
+  font-size: 14vw;
+  letter-spacing: 1.2px;
+  color: #dcdcdc;
+}
+
+/* Small top-left logo */
+.small-logo img {
+  width: 90px;
+  height: auto;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.9));
+  transition: transform 0.25s ease;
+}
+
+.small-logo img:hover {
+  transform: scale(1.15);
+}
+
+/* Sidebar text */
+.nav a {
+  font-size: 20px;
+}
+
+.nav .active a {
+  font-size: 22px;
+}
+
+/* Bottom tagline */
+.tag {
+  bottom: 25px;
+  font-size: 18px;
+  color: #e0e0e0;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.8);
+}
+
+/* Down arrow */
+.down-arrow {
+  bottom: 10px;
+  font-size: 28px;
+  color: #a259ff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.nav {
+  margin-left: 12px;
+}
+
+.nav a {
+  text-align: left;
+  padding-left: 4px;
+}
+
+.search-input {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+}
+
+.search-input::before {
+  content: "";
+  position: absolute;
+  left: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c6c6c;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.search-input input {
+  width: 100%;
+  background: #191919;
+  border-radius: 999px;
+  padding: 12px 46px 12px 90px;
+  border: none;
+  color: #dcdcdc;
+  outline: none;
+  font-size: 14px;
+}
+
+/* --- Profile Button (Top Right) --- */
+.profile-btn {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.profile-btn img {
+  width: 54px;
+  height: 54px;
+  opacity: 0.9;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.profile-btn:hover img {
+  transform: scale(1.15);
+  opacity: 1;
+}
+/* --- Subtle left shift for centered elements --- */
+.hirevo,
+.main-logo,
+.tag,
+.down-arrow {
+  transform: translateX(-3%);
+}
+/* --- Slightly stronger left shift for the bottom tagline --- */
+.tag {
+  transform: translateX(-25%);
+}
+
