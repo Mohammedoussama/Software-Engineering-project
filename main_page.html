@@ -10,6 +10,17 @@
 </head>
 <body>
   <div class="app">
+<!-- Splash screen -->
+<div id="splash-screen">
+  <div class="splash-content">
+    <h1>
+      <span class="ai">AI</span> POWERED
+      <img src="pictures/Group 13.png" alt="Star 1" class="star star-left">
+    </h1>
+  </div>
+</div>
+
+
     <!-- Sidebar (top-left) -->
     <aside class="sidebar">
       <div class="small-logo">
@@ -26,7 +37,6 @@
       </nav>
 
       <button class="settings-btn" aria-label="Settings">
-        <!-- you can swap this <img> for an icon font or inline svg -->
         <img src="pictures/Setting_fill.png" alt="settings">
       </button>
     </aside>
@@ -38,9 +48,8 @@
           <input type="search" placeholder="Search..." />
         </div>
         <button class="profile-btn">
-        <img src="pictures/Group 9.png" alt="Profile">
-</button>
-
+          <img src="pictures/Group 9.png" alt="Profile">
+        </button>
       </div>
 
       <section class="hero center" id="hero">
@@ -53,6 +62,24 @@
         <div class="down-arrow">⌄</div>
       </section>
     </main>
+  </div>
+
+  <!-- 🔥 Login Popup -->
+  <div id="login-popup" class="popup-overlay">
+    <div class="popup-card">
+      <h2>welcome</h2>
+
+      <label for="email">EMAIL:</label>
+      <input type="email" id="email" placeholder="Enter your email">
+
+      <label for="password">PASSWORD:</label>
+      <input type="password" id="password" placeholder="Enter your password">
+
+      <a href="#" class="forgot">Forgot Password?</a>
+      <p class="signup-text">Don't have an account? <a href="#">Sign up</a></p>
+
+      <button class="login-btn">log in</button>
+    </div>
   </div>
 
   <script src="main_page.js"></script>

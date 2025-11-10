@@ -400,4 +400,197 @@ body {
 .tag {
   transform: translateX(-25%);
 }
+/* === LOGIN POPUP === */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(8px);
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.popup-card {
+  background: #f8f8f8;
+  border-radius: 20px;
+  padding: 40px 50px;
+  width: 320px;
+  box-shadow: 0 0 40px rgba(162, 89, 255, 0.4);
+  text-align: left;
+  color: #000;
+  position: relative;
+  animation: popupFade 0.4s ease;
+}
+
+@keyframes popupFade {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.popup-card h2 {
+  color: #2e005f;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: lowercase;
+}
+
+.popup-card label {
+  display: block;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #2e005f;
+}
+
+.popup-card input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 4px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #f1e9ff;
+  color: #333;
+  font-size: 14px;
+}
+
+.popup-card .forgot {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6a1b9a;
+  text-decoration: none;
+}
+
+.popup-card .signup-text {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #444;
+  text-align: center;
+}
+
+.popup-card .signup-text a {
+  color: #6a1b9a;
+  text-decoration: none;
+}
+
+.login-btn {
+  display: block;
+  margin: 20px auto 0;
+  background: linear-gradient(135deg, #a259ff, #6a1b9a);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.popup-overlay {
+  display: none; /* Hidden by default */
+  /* rest of your popup CSS */
+}
+/* === SPLASH SCREEN === */
+#splash-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #1e1e1e 20%, #000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2000;
+  transition: transform 1.2s ease, opacity 0.8s ease;
+}
+
+.splash-content {
+  text-align: center;
+}
+
+.splash-logo {
+  width: 180px;
+  filter: drop-shadow(0 0 20px rgba(128, 0, 255, 0.6));
+  animation: floatLogo 2s ease-in-out infinite alternate;
+}
+
+.splash-text {
+  margin-top: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(90deg, #7e22ce, #b388ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 2px;
+}
+
+/* Animation for logo floating */
+@keyframes floatLogo {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-15px); }
+}
+
+/* When splash screen hides */
+#splash-screen.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+/* Splash screen stars */
+.splash-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.splash-content h1 {
+  font-size: 5vw;
+  font-weight: 800;
+  color: #b57bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+}
+
+/* star styling */
+.star {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px #a259ff);
+  animation: starFade 2.2s ease-in-out infinite alternate;
+}
+
+/* optional: make them subtly move/glow */
+@keyframes starFade {
+  from {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+.star {
+  width: 130px;   /* ← change this value to control size */
+  height: 130px;  /* keep same ratio */
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px #a259ff);
+}
 
